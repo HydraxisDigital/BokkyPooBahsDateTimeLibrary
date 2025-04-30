@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.8.29;
 
 // ----------------------------------------------------------------------------
 // BokkyPooBah's DateTime Library v1.00
@@ -366,10 +366,10 @@ contract BokkyPooBahsDateTimeContract {
     uint public constant DOW_SUN = 7;
 
     function _now() public view returns (uint timestamp) {
-        timestamp = now;
+        timestamp = block.timestamp;
     }
     function _nowDateTime() public view returns (uint year, uint month, uint day, uint hour, uint minute, uint second) {
-        (year, month, day, hour, minute, second) = BokkyPooBahsDateTimeLibrary.timestampToDateTime(now);
+        (year, month, day, hour, minute, second) = BokkyPooBahsDateTimeLibrary.timestampToDateTime(block.timestamp);
     }
     function _daysFromDate(uint year, uint month, uint day) public pure returns (uint _days) {
         return BokkyPooBahsDateTimeLibrary._daysFromDate(year, month, day);
